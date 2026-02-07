@@ -1,125 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I missed a day. I won't miss you.</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Rose Day, Cherish 🌹</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Floating heart decorations -->
-    <div class="floating-hearts" aria-hidden="true">
-        <div class="heart heart-1">
-            <img src="heart.svg" alt="" role="presentation">
-        </div>
-        <div class="heart heart-2">
-            <img src="heart.svg" alt="" role="presentation">
-        </div>
-        <div class="heart heart-3">
-            <img src="heart.svg" alt="" role="presentation">
-        </div>
-        <div class="heart heart-4">
-            <img src="heart.svg" alt="" role="presentation">
-        </div>
-        <div class="heart heart-5">
-            <img src="heart.svg" alt="" role="presentation">
-        </div>
+  <!-- Three.js Canvas -->
+  <canvas id="rose-canvas"></canvas>
+
+  <!-- Content Overlay -->
+  <div class="overlay" id="overlay">
+    <!-- Landing / Intro -->
+    <div class="scene scene--intro active" id="scene-intro">
+      <div class="intro-rose">🌹</div>
+      <p class="intro-subtitle">tap the rose</p>
     </div>
 
-    <!-- Main content -->
-    <main class="container">
-        <div class="card">
-            <header class="card-header">
-                <h1 class="title">I missed a day. I won't miss you.</h1>
-                <p class="subtitle">I hope you'll forgive me 💗</p>
-            </header>
-
-            <!-- Live region for screen readers -->
-            <div id="live-region" aria-live="polite" aria-atomic="true" class="sr-only"></div>
-
-            <!-- Content area where messages appear -->
-            <div class="content">
-                <!-- Step 1 -->
-                <div id="step-1" class="step-container">
-                    <div id="message-1" class="message hidden" role="region" aria-labelledby="step-1-heading">
-                        <div class="message-image">
-                            <img src="girlfriend1.jpg" alt="I love my girlfriend" class="girlfriend-photo">
-                        </div>
-                        <h2 id="step-1-heading" class="message-text">I'm sorry I didn't celebrate Girlfriend's Day yesterday.</h2>
-                    </div>
-                    <button id="btn-1" class="btn btn-primary" type="button" aria-describedby="step-1-desc">
-                        Open my apology
-                    </button>
-                    <div id="step-1-desc" class="sr-only">Click to reveal my heartfelt apology</div>
-                </div>
-
-                <!-- Step 2 -->
-                <div id="step-2" class="step-container">
-                    <div id="message-2" class="message hidden" role="region" aria-labelledby="step-2-heading">
-                        <div class="message-image">
-                            <img src="girlfriend2.jpg" alt="My favorite person" class="girlfriend-photo">
-                        </div>
-                        <h2 id="step-2-heading" class="message-text">I should've made you feel special. I hope this makes it up to you.</h2>
-                    </div>
-                    <button id="btn-2" class="btn btn-primary hidden" type="button" aria-describedby="step-2-desc">
-                        There's more…
-                    </button>
-                    <div id="step-2-desc" class="sr-only">Click to continue reading my message</div>
-                </div>
-
-                <!-- Step 3 -->
-                <div id="step-3" class="step-container">
-                    <div id="message-3" class="message hidden" role="region" aria-labelledby="step-3-heading">
-                        <h2 id="step-3-heading" class="message-text">Tonight is yours: We'll watch whatever movie you want.</h2>
-                    </div>
-                    <button id="btn-3" class="btn btn-primary hidden" type="button" aria-describedby="step-3-desc">
-                        How I'll make it up
-                    </button>
-                    <div id="step-3-desc" class="sr-only">Click to see how I'll make it up to you</div>
-                </div>
-
-                <!-- Step 4 -->
-                <div id="step-4" class="step-container">
-                    <div id="message-4" class="message hidden" role="region" aria-labelledby="step-4-heading">
-                        <h2 id="step-4-heading" class="message-text">You matter to me, today and always.</h2>
-                        
-                        <!-- Date options that appear after final message -->
-                        <div id="date-options" class="date-options hidden">
-                            <h3 class="options-title">Pick tonight's movie:</h3>
-                            <div class="options-grid">
-                                <a href="#movie1" class="option-link" aria-label="Brick movie option">
-                                    <div class="option-icon">🧱</div>
-                                    <span class="option-text">Brick</span>
-                                </a>
-                                <a href="#movie2" class="option-link" aria-label="The Guilty movie option">
-                                    <div class="option-icon">📞</div>
-                                    <span class="option-text">The Guilty</span>
-                                </a>
-                                <a href="#movie3" class="option-link" aria-label="Your Choice movie option">
-                                    <div class="option-icon">🎬</div>
-                                    <span class="option-text">Your Choice</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <button id="btn-4" class="btn btn-primary hidden" type="button" aria-describedby="step-4-desc">
-                        Redeem a date 💗
-                    </button>
-                    <div id="step-4-desc" class="sr-only">Click to see date options and complete the experience</div>
-                </div>
-            </div>
+    <!-- Main Message -->
+    <div class="scene scene--main" id="scene-main">
+      <div class="message-container">
+        <h2 class="title">Happy Rose Day</h2>
+        <h1 class="name">Cherrish</h1>
+        <div class="divider"><span>🌹</span></div>
+        <p class="message-text">
+          I know it's not easy being this far apart and I just wish I could be there next to you, doing absolutely nothing together.
+        </p>
+        <p class="message-text delayed-1">
+          but honestly even with all the distance, you're still the first person
+          I want to talk to when something good happens. Or something bad. Or something
+          completely random that only you would find funny.
+        </p>
+        <p class="message-text delayed-2">
+          I can't hand you a real rose today, so this is me trying.
+        </p>
+        <p class="message-text delayed-3">
+          I love you. I miss you. And I'm counting down the days until
+          I don't have to anymore.
+        </p>
+        <div class="hearts-row">
+          <span>🌹</span>
         </div>
-    </main>
+        <p class="closing">yours, always</p>
+      </div>
+    </div>
+  </div>
 
-    <!-- Confetti container -->
-    <div id="confetti-container" aria-hidden="true"></div>
+  <!-- Audio toggle -->
+  <button class="audio-toggle" id="audioToggle" title="Toggle music">♪</button>
 
-    <script src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="app.js"></script>
 </body>
-</html> 
+</html>
